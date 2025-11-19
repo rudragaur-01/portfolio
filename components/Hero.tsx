@@ -1,6 +1,23 @@
 import { Github, Instagram, Linkedin, MapPin, Twitter } from "lucide-react";
+import Link from "next/link";
 
 const Hero = () => {
+  const socialLinks = [
+    {
+      icon: Github,
+      href: "https://github.com/rudragaur-01",
+    },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/rudragaur3601/",
+    },
+    {
+      icon: Instagram,
+    },
+    {
+      icon: Twitter,
+    },
+  ];
   return (
     <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-16 text-primary">
       <div className="flex flex-col items-center md:items-start">
@@ -13,10 +30,26 @@ const Hero = () => {
         </div>
         <div className="flex flex-col gap-5 w-full">
           <div className="flex w-full items-center gap-4 justify-between">
-            <Github className="hover:scale-105 " />
-            <Linkedin className="hover:scale-105 " />
-            <Instagram className="hover:scale-105 " />
-            <Twitter className="hover:scale-105 " />
+            {socialLinks.map((link, index) => {
+              const Icon = link.icon;
+              return link.href ? (
+                <Link
+                  key={index}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:scale-105 transition-transform duration-200"
+                >
+                  <Icon size={24} />
+                </Link>
+              ) : (
+                <Icon
+                  key={index}
+                  size={24}
+                  className="opacity-50 cursor-not-allowed"
+                />
+              );
+            })}
           </div>
         </div>
       </div>

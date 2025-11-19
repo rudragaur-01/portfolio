@@ -15,7 +15,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body>
         <header className="sticky top-0 z-20 px-6 py-2 bg-black/50 backdrop-blur-sm ">
-          <span className="inline-block p-2 rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/20 to-purple-500/20">
+          <span className="inline-block cursor-default p-2 rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/20 to-purple-500/20">
             RG
           </span>
         </header>
