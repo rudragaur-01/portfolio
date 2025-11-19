@@ -6,7 +6,7 @@ const Hero = () => {
       <div className="flex flex-col items-center md:items-start">
         <div className="relative w-40 h-40 lg:w-50 lg:h-50 mb-6 rounded-full ring-2 ring-gray-100 overflow-hidden bg-gray-900/50">
           <img
-            src="/profilepic.png"
+            src="/profilepic.jpg"
             alt="Profile"
             className="w-full h-full object-cover"
           />
