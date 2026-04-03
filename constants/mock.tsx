@@ -11,7 +11,7 @@ export const education = [
 
 export const experience = [
   {
-    year: "Nov 2024 – Present",
+    year: "Nov 2024 – Jan 2026",
     title: "Full Stack Developer",
     institute: "Frisson Devhub, Noida, India",
     desc: "Optimized full-stack applications, improved performance, integrated Stripe payments, built REST APIs, and accelerated development using modular UI components.",
