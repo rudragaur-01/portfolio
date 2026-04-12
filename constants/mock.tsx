@@ -47,6 +47,28 @@ export const services: ServiceType[] = [
 
 export const projectsData: ProjectType[] = [
   {
+    imgSrc: '/project1.png',
+    title: 'CultureNOW – Digital Museum',
+    tags: ['Frontend', 'Backend', 'Database'],
+    projectLink: 'https://culturenow.org/',
+    ownership: 'company',
+  },
+  {
+    imgSrc: '/project5.png',
+    title: 'Digitas',
+    tags: ['Frontend', 'CMS'],
+    projectLink: 'https://www.diriyah.sa/en',
+    ownership: 'company',
+  },
+  {
+    imgSrc: '/project6.png',
+    title: 'Gathergram',
+    tags: ['Frontend'],
+    projectLink: 'https://www.gathergram.app/about',
+    ownership: 'company',
+  },
+
+  {
     imgSrc: '/project7.png',
     title: 'Event Management Platform',
     tags: ['Frontend', 'Backend', 'Database'],
@@ -61,67 +83,17 @@ export const projectsData: ProjectType[] = [
     ownership: 'personal',
   },
   {
-    imgSrc: '/project2.png',
-    title: 'Budget Manager API',
-    tags: ['Backend', 'Database'],
-    projectLink: 'https://github.com/rudragaur-01',
-    ownership: 'personal',
-  },
-  {
-    imgSrc: '/project1.png',
-    title: 'CultureNOW – Digital Museum',
-    tags: ['Frontend', 'Backend', 'Database'],
-    projectLink: 'https://culturenow.org/',
-    ownership: 'company',
-  },
-
-  {
-    imgSrc: '/project5.png',
-    title: 'Digitas',
-    tags: ['Frontend', 'CMS'],
-    projectLink: 'https://www.diriyah.sa/en',
-    ownership: 'company',
-  },
-
-  {
-    imgSrc: '/dummyproject.jpeg',
-    title: 'Kokoro Financial Platform',
-    tags: ['Frontend'],
-    projectLink: '',
-    ownership: 'company',
-  },
-  {
-    imgSrc: '/project6.png',
-    title: 'Gathergram',
-    tags: ['Frontend'],
-    projectLink: 'https://www.gathergram.app/about',
-    ownership: 'company',
-  },
-  {
-    imgSrc: '/project3.png',
-    title: 'Sidecup GSAP',
-    tags: ['Frontend', 'GSAP'],
-    projectLink: 'https://github.com/rudragaur-01',
-    ownership: 'personal',
-  },
-  {
-    imgSrc: '/project8.png',
-    title: 'NewTrendz',
-    tags: ['Frontend', 'Design'],
-    projectLink: 'https://github.com/rudragaur-01',
-    ownership: 'personal',
-  },
-  {
-    imgSrc: '/project9.png',
-    title: 'Drag & Drop Interface',
-    tags: ['Frontend', 'React', 'UI'],
-    projectLink: 'https://dragula-drag-drop.vercel.app/',
+    imgSrc: '/phys.webp',
+    title: 'Phishing Analyzer API',
+    tags: ['Backend', 'Python'],
+    projectLink: 'https://github.com/rudragaur-01/phishing-analyzer-api',
     ownership: 'personal',
   },
 ];
 
 export const tools: ToolType[] = [
   { label: "JavaScript" },
+  { label: "Python" },
   { label: "TypeScript" },
   { label: "HTML5" },
   { label: "CSS3" },

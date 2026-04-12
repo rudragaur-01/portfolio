@@ -11,8 +11,8 @@ export default function Home() {
       <div className="max-w-6xl mx-auto p-6 lg:p-8 bg-background text-foreground tracking">
         <Hero />
         <ProfessionalJourney />
-        <Stack />
         <FeaturedProjects />
+        <Stack />
         <Services />
         <Contact />
       </div>

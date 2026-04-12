@@ -100,7 +100,7 @@ const ProjectCard = ({
 const FeaturedProjects = () => {
   return (
     <section className="mb-16 scroll-mt-10 3xl:pt-30" id="projects">
-      <SectionHeader icon={<Code />} title="Featured Projects" />
+      <SectionHeader icon={<Code />} title="Projects" />
 
       <p className=" text-neutral-300 md:text-left mx-auto md:mx-0 leading-relaxed text-base xl:text-lg tracking-wide">
         I've worked on a wide variety of projects — from sleek, responsive
@@ -113,6 +113,16 @@ const FeaturedProjects = () => {
           <ProjectCard key={i} {...project} />
         ))}
       </div>
+     <div className="mt-10 text-center md:text-right">
+  <a
+    href="https://github.com/rudragaur-01"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-neutral-400 hover:text-white underline underline-offset-4 transition"
+  >
+    Explore more projects on GitHub →
+  </a>
+</div>
     </section>
   );
 };
