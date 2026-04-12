@@ -36,7 +36,7 @@ const Contact = () => {
             "
           >
             <a
-              href="https://www.linkedin.com/in/rudragaur3601/"
+              href="https://www.linkedin.com/in/rudra-gaur3601/"
               target="_blank"
               rel="noopener noreferrer"
             >
