@@ -1,5 +1,5 @@
 import type { ProjectType, ServiceType, ToolType } from "@/types";
-import { Code, Layout, Globe } from "lucide-react";
+import { Code, Layout, Globe, Layers } from "lucide-react";
 export const education = [
   {
     year: "2019 - 2023",
@@ -11,59 +11,72 @@ export const education = [
 
 export const experience = [
   {
-    year: "Nov 2024 – Jan 2026",
+    year: "May 2026 – Present",
     title: "Full Stack Developer",
-    institute: "Frisson Devhub, Noida, India",
-    desc: "Optimized full-stack applications, improved performance, integrated Stripe payments, built REST APIs, and accelerated development using modular UI components.",
+    institute: "Web Guru Mantra Pvt. Ltd., New Delhi, India",
+    desc: "Working across frontend, backend, and database layers to deliver business-focused web solutions. Built and launched an end-to-end NGO platform featuring dynamic content management, Razorpay-powered donation workflows, and scalable REST APIs using React, Node.js, and MongoDB. Contributed to the redesign of the Suraksha 24/7 platform by restructuring application flows, improving data models, and optimizing admin-panel performance through techniques such as lazy loading and component memoization. Also involved in enhancing Web Guru Mantra and client websites by translating business requirements into responsive, user-friendly experiences.",
   },
   {
-    year: "Aug 2024 – Oct 2024",
-    title: "Full Stack Developer Intern",
+    year: "Aug 2024 – Jan 2026",
+    title: "Full Stack Developer",
     institute: "Frisson Devhub, Noida, India",
-    desc: "Improved UI components, collaborated in Agile sprints, strengthened debugging and Git workflows, and worked on scalable module development.",
+    desc: "Started as a Full Stack Developer Intern and progressed to a Full Stack Developer role based on project contributions and performance. Worked on multiple production applications involving React.js, Node.js, PostgreSQL, Strapi, and Sitecore CMS. Integrated Stripe payment solutions supporting 100K+ users, designed and optimized REST APIs, implemented authentication and authorization systems, and contributed to the successful delivery of several client-facing web applications. Gained hands-on experience across the entire development lifecycle, from feature development and debugging to deployment and maintenance.",
   },
 ];
+
 
 export const services: ServiceType[] = [
   {
     title: "Full Stack Development",
-    desc: "I develop scalable, high-performance web applications using modern technologies like Next.js, React, Node.js, and MongoDB.",
+    desc: "Building production-ready web applications across frontend, backend, and database layers using React, Next.js, Node.js, MongoDB, and PostgreSQL.",
     highlight: "End-to-End Solutions",
     icon: <Code className="h-6 w-6 text-green-400" />,
   },
   {
     title: "Frontend Engineering",
-    desc: "Creating responsive, accessible, and visually engaging user interfaces with a focus on performance and seamless user experience.",
+    desc: "Creating responsive, accessible, and performant user interfaces with modern React ecosystems, optimized for usability and seamless user experiences.",
     highlight: "Modern Frontend Stack",
     icon: <Layout className="h-6 w-6 text-green-400" />,
   },
   {
     title: "Backend Development",
-    desc: "Building secure and efficient APIs, integrating databases, and architecting reliable backend systems using Node.js and Express.",
-    highlight: "Robust API Architecture",
+    desc: "Developing scalable REST APIs, authentication systems, business logic, and database-driven applications using Node.js, Express.js, MongoDB, and PostgreSQL.",
+    highlight: "API & Database Systems",
     icon: <Globe className="h-6 w-6 text-green-400" />,
+  },
+  {
+    title: "CMS & Integrations",
+    desc: "Implementing payment gateways, headless CMS platforms, and third-party services including Stripe, Razorpay, Strapi, Sitecore, and authentication providers.",
+    highlight: "Business Integrations",
+    icon: <Layers className="h-6 w-6 text-green-400" />,
   },
 ];
 
 export const projectsData: ProjectType[] = [
   {
+    imgSrc: '/SikhTrust.png',
+    title: 'Global Sikh Charitable Trust',
+
+    projectLink: 'https://globalsikhcharity.in/',
+    ownership: 'company',
+  },
+  {
     imgSrc: '/project1.png',
     title: 'CultureNOW – Digital Museum',
-    tags: ['Frontend', 'Backend', 'Database'],
     projectLink: 'https://culturenow.org/',
     ownership: 'company',
   },
   {
     imgSrc: '/project5.png',
     title: 'Digitas',
-    tags: ['Frontend', 'CMS'],
+
     projectLink: 'https://www.diriyah.sa/en',
     ownership: 'company',
   },
   {
     imgSrc: '/project6.png',
     title: 'Gathergram',
-    tags: ['Frontend'],
+
     projectLink: 'https://www.gathergram.app/about',
     ownership: 'company',
   },
@@ -71,21 +84,14 @@ export const projectsData: ProjectType[] = [
   {
     imgSrc: '/project7.png',
     title: 'Event Management Platform',
-    tags: ['Frontend', 'Backend', 'Database'],
+
     projectLink: 'https://github.com/rudragaur-01/event-platform',
     ownership: 'freelance',
   },
   {
-    imgSrc: '/project4.png',
-    title: 'Dashboard',
-    tags: ['Frontend'],
-    projectLink: 'https://github.com/rudragaur-01',
-    ownership: 'personal',
-  },
-  {
     imgSrc: '/phys.webp',
     title: 'Phishing Analyzer API',
-    tags: ['Backend', 'Python'],
+
     projectLink: 'https://github.com/rudragaur-01/phishing-analyzer-api',
     ownership: 'personal',
   },

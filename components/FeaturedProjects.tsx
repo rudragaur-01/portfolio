@@ -6,13 +6,11 @@ import SectionHeader from "./SectionHeader";
 const ProjectCard = ({
   imgSrc,
   projectLink,
-  tags,
   title,
   ownership,
 }: {
   imgSrc: string;
   projectLink: string;
-  tags: string[];
   title: string;
   ownership: "personal" | "company" | "freelance";
 }) => {
@@ -29,10 +27,9 @@ const ProjectCard = ({
 
         <span
           className={`absolute top-3 right-3 px-4 py-2 rounded-full text-xs font-semibold shadow-md
-            ${
-              ownership === "personal"
-                ? "bg-white text-black"
-                : ownership === "company"
+            ${ownership === "personal"
+              ? "bg-white text-black"
+              : ownership === "company"
                 ? "bg-black text-white"
                 : "bg-white text-black"
             }
@@ -41,8 +38,8 @@ const ProjectCard = ({
           {ownership === "personal"
             ? "Personal"
             : ownership === "company"
-            ? "Company"
-            : "Freelance"}
+              ? "Company"
+              : "Freelance"}
         </span>
       </div>
 
@@ -56,22 +53,13 @@ const ProjectCard = ({
             {ownership === "personal"
               ? "A personal project built for learning and experimentation."
               : ownership === "company"
-              ? "A company project developed as part of a professional team."
-              : "A freelance project built for a client."}
+                ? "A company project developed as part of a professional team."
+                : "A client project developed as part of a professional collaboration."}
           </p>
         </div>
 
         <div className="flex justify-between items-center flex-wrap gap-3 pt-2">
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag, i) => (
-              <span
-                key={i}
-                className="bg-neutral-800/70 text-neutral-300 py-1 px-2 rounded-md text-xs sm:text-sm hover:bg-primary hover:text-black transition"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+
 
           {projectLink && (
             <a
@@ -113,16 +101,16 @@ const FeaturedProjects = () => {
           <ProjectCard key={i} {...project} />
         ))}
       </div>
-     <div className="mt-10 text-center md:text-right">
-  <a
-    href="https://github.com/rudragaur-01"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-neutral-400 hover:text-white underline underline-offset-4 transition"
-  >
-    Explore more projects on GitHub →
-  </a>
-</div>
+      <div className="mt-10 text-center md:text-right">
+        <a
+          href="https://github.com/rudragaur-01"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-neutral-400 hover:text-white underline underline-offset-4 transition"
+        >
+          Explore more projects on GitHub →
+        </a>
+      </div>
     </section>
   );
 };

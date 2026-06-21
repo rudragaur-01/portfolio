@@ -28,7 +28,7 @@ const ServiceCard = ({ service }: { service: ServiceType }) => {
 const Services = () => {
   return (
     <section className="mb-16 scroll-mt-10" id="services">
-      <SectionHeader icon={<SparkleIcon />} title="Services" />
+      <SectionHeader icon={<SparkleIcon />} title="Core Expertise" />
 
       <div className="grid md:grid-cols-2 gap-8 xl:gap-10 2xl:gap-12 ">
         {services.map((service) => (

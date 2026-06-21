@@ -9,7 +9,7 @@ const Hero = () => {
     },
     {
       icon: Linkedin,
-      href: "https://www.linkedin.com/in/rudragaur3601/",
+      href: "https://www.linkedin.com/in/rudra-gaur-5a8b40409/",
     },
     {
       icon: Instagram,
@@ -23,7 +23,7 @@ const Hero = () => {
       <div className="flex flex-col items-center md:items-start">
         <div className="relative w-40 h-40 lg:w-50 lg:h-50 mb-6 rounded-full ring-2 ring-gray-100 overflow-hidden bg-gray-900/50">
           <img
-            src="/profile.jpg"
+            src="/profile.png"
             alt="Profile"
             className="w-full h-full object-cover"
           />
@@ -55,16 +55,20 @@ const Hero = () => {
       </div>
 
       <div className="flex-1 text-center md:text-left">
-        <h1 className="text-4xl lg:text-5xl font-bold mb-3 tracking-widest">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 tracking-wide">
           Rudra Gaur
         </h1>
-        <p className="text-lg lg:text-xl text-gray-400 mb-5 tracking-widest">
-          Full-Stack Developer | Next.js, React, Node.js
+
+        <p className="text-lg lg:text-xl text-blue-400 mb-5 font-medium">
+          Full Stack Developer | React.js • Next.js • Node.js
         </p>
-        <p className="text-neutral-300 leading-relaxed tracking-widest text-md lg:text-lg max-w-2xl">
-          Self-taught Full-Stack Developer from India, passionate about crafting
-          modern, scalable web experiences with technologies like Next.js. I
-          enjoy experimenting, building, and growing through hands-on projects.
+
+        <p className="text-neutral-300 leading-relaxed text-md lg:text-lg max-w-2xl">
+          I build scalable web applications from frontend to backend, with experience
+          across React, Next.js, Node.js, MongoDB, and PostgreSQL. My work includes
+          payment integrations, CMS platforms, authentication systems, admin
+          dashboards, and business-critical applications serving real users in
+          production environments.
         </p>
       </div>
     </div>

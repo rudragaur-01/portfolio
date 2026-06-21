@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 
 const Contact = () => {
   return (
-    <section className=" mb-20 scroll-mt-10" id="contact">
+    <section className=" scroll-mt-10" id="contact">
       <SectionHeader icon={<MailIcon />} title="Contact" />
 
       <div className="flex justify-center ">
@@ -36,7 +36,7 @@ const Contact = () => {
             "
           >
             <a
-              href="https://www.linkedin.com/in/rudra-gaur3601/"
+              href="https://www.linkedin.com/in/rudra-gaur-5a8b40409/"
               target="_blank"
               rel="noopener noreferrer"
             >

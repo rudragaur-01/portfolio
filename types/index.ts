@@ -4,7 +4,6 @@ import type { JSX } from "react";
 export type ProjectType = {
   imgSrc: string;
   title: string;
-  tags: string[];
   projectLink: string;
   ownership: "personal" | "company" | "freelance";
 };
