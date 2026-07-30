@@ -8,13 +8,13 @@ export type ProjectType = {
   ownership: "personal" | "company" | "freelance";
 };
 
-export type ExperienceType = {
+export interface ExperienceType {
   year: string;
+  startDate?: string;
   title: string;
   institute: string;
-  desc: string;
-};
-
+  desc: string[];
+}
 export type ServiceType = {
   title: string;
   desc: string;

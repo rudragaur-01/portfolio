@@ -5,22 +5,29 @@ export const education = [
     year: "2019 - 2023",
     title: "Bachelor of Technology (CSE)",
     institute: "Delhi Technical Campus",
-    desc: "Secured a CGPA of 8.26 / 10. Built a strong foundation in software engineering, data structures, and full-stack development.",
+    desc: [
+      "Graduated with a CGPA of 8.26 / 10.",
+      "Built a strong foundation in software engineering, data structures, algorithms, and full-stack development.",
+    ],
   },
 ];
 
 export const experience = [
   {
-    year: "May 2026 – Present",
+    year: "Aug 2024 – Present",
     title: "Full Stack Developer",
-    institute: "Web Guru Mantra Pvt. Ltd., New Delhi, India",
-    desc: "Working across frontend, backend, and database layers to deliver business-focused web solutions. Built and launched an end-to-end NGO platform featuring dynamic content management, Razorpay-powered donation workflows, and scalable REST APIs using React, Node.js, and MongoDB. Contributed to the redesign of the Suraksha 24/7 platform by restructuring application flows, improving data models, and optimizing admin-panel performance through techniques such as lazy loading and component memoization. Also involved in enhancing Web Guru Mantra and client websites by translating business requirements into responsive, user-friendly experiences.",
-  },
-  {
-    year: "Aug 2024 – Jan 2026",
-    title: "Full Stack Developer",
+    startDate: "2024-08-01",
     institute: "Frisson Devhub, Noida, India",
-    desc: "Started as a Full Stack Developer Intern and progressed to a Full Stack Developer role based on project contributions and performance. Worked on multiple production applications involving React.js, Node.js, PostgreSQL, Strapi, and Sitecore CMS. Integrated Stripe payment solutions supporting 100K+ users, designed and optimized REST APIs, implemented authentication and authorization systems, and contributed to the successful delivery of several client-facing web applications. Gained hands-on experience across the entire development lifecycle, from feature development and debugging to deployment and maintenance.",
+    desc: [
+      "Started as a Full Stack Developer Intern and progressed to a Full Stack Developer role based on performance.",
+      "Built and maintained scalable web applications using React.js, Next.js, Node.js, Express.js, PostgreSQL, and MongoDB.",
+      "Designed and developed REST APIs with authentication, authorization, and role-based access control.",
+      "Integrated Stripe payment gateway for high-traffic production applications serving 100K+ users.",
+      "Worked extensively with Strapi CMS and Sitecore CMS for dynamic content management.",
+      "Optimized application performance through efficient database design, API improvements, and frontend optimizations.",
+      "Collaborated with cross-functional teams to deliver production-ready client projects from development to deployment.",
+      "Debugged, maintained, and enhanced existing applications while implementing new business requirements."
+    ],
   },
 ];
 
