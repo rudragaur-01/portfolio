@@ -8,7 +8,7 @@ import Stack from "@/components/Stack";
 export default function Home() {
   return (
     <div className="min-h-screen w-full">
-      <div className="max-w-6xl mx-auto p-6  bg-background text-foreground tracking">
+      <div className="max-w-5xl mx-auto px-6 pb-24">
         <Hero />
         <ProfessionalJourney />
         <FeaturedProjects />

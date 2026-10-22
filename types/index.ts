@@ -1,9 +1,10 @@
 
-import type { JSX } from "react";
 
 export type ProjectType = {
   imgSrc: string;
   title: string;
+  description: string;
+  tags: string[];
   projectLink: string;
   ownership: "personal" | "company" | "freelance";
 };
@@ -12,8 +13,11 @@ export interface ExperienceType {
   year: string;
   startDate?: string;
   title: string;
+  note?: string;
   institute: string;
   desc: string[];
+  tags?: string[];
+  highlights?: { value: string; label: string }[];
 }
 export type ServiceType = {
   title: string;
@@ -23,5 +27,6 @@ export type ServiceType = {
 };
 
 export type ToolType = {
-  label: string;
+  category: string;
+  items: string[];
 };

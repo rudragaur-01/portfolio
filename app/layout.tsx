@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import ThemeToggle from "@/components/ThemeToggle";
 import "./globals.css";
+
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Rudra Gaur",
   description: "Portfolio",
 };
+
+// Applies the saved theme before paint (dark by default) to avoid a flash.
+const themeScript = `(function(){try{if(localStorage.getItem("theme")==="light"){document.documentElement.classList.remove("dark")}}catch(e){}})()`;
 
 export default function RootLayout({
   children,
@@ -12,12 +23,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html
+      lang="en"
+      className={`dark ${geistSans.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
-        <header className="sticky top-0 z-20 px-6 py-2 bg-black/50 backdrop-blur-sm ">
-          {/* <span className="inline-block cursor-default p-2 rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/20 to-purple-500/20">
-            RG
-          </span> */}
+        <header className="sticky top-0 z-20 border-b border-border/60 bg-background/70 backdrop-blur-md">
+          <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a
+              href="#"
+              className="font-mono text-sm font-medium tracking-tight"
+            >
+              rudra.gaur
+            </a>
+            <ThemeToggle />
+          </div>
         </header>
 
         <main>{children}</main>

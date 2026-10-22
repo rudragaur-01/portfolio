@@ -1,114 +1,99 @@
 import { projectsData } from "@/constants/mock";
 import { ProjectType } from "@/types";
-import { Code, Github, Globe } from "lucide-react";
+import { ArrowUpRight, Code, Github } from "lucide-react";
 import SectionHeader from "./SectionHeader";
+
+const ownershipLabel: Record<ProjectType["ownership"], string> = {
+  company: "Company",
+  freelance: "Freelance",
+  personal: "Personal",
+};
 
 const ProjectCard = ({
   imgSrc,
   projectLink,
   title,
+  description,
+  tags,
   ownership,
-}: {
-  imgSrc: string;
-  projectLink: string;
-  title: string;
-  ownership: "personal" | "company" | "freelance";
-}) => {
+}: ProjectType) => {
   const isGithub = projectLink?.includes("github.com");
 
   return (
-    <div className="group block overflow-hidden rounded-xl border border-neutral-700 bg-neutral-900/40 hover:bg-neutral-800/60 transition">
-      <div className="relative overflow-hidden rounded-t-xl">
+    <a
+      href={projectLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-foreground/5 hover:border-foreground/20"
+    >
+      <div className="relative overflow-hidden border-b border-border bg-muted aspect-16/10">
         <img
           src={imgSrc}
           alt={title}
-          className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
-
-        <span
-          className={`absolute top-3 right-3 px-4 py-2 rounded-full text-xs font-semibold shadow-md
-            ${ownership === "personal"
-              ? "bg-white text-black"
-              : ownership === "company"
-                ? "bg-black text-white"
-                : "bg-white text-black"
-            }
-          `}
-        >
-          {ownership === "personal"
-            ? "Personal"
-            : ownership === "company"
-              ? "Company"
-              : "Freelance"}
+        <span className="absolute top-3 left-3 rounded-full bg-background/80 backdrop-blur px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider text-foreground border border-border">
+          {ownershipLabel[ownership]}
         </span>
       </div>
 
-      <div className="flex flex-col p-5 space-y-4">
-        <div>
-          <h3 className="text-white text-lg xl:text-xl 2xl:text-2xl font-semibold mb-1 group-hover:text-primary transition">
+      <div className="flex flex-1 flex-col p-5 md:p-6">
+        <div className="flex items-start justify-between gap-4 mb-2">
+          <h3 className="text-lg md:text-xl font-semibold tracking-tight">
             {title}
           </h3>
-
-          <p className="text-sm text-neutral-400">
-            {ownership === "personal"
-              ? "A personal project built for learning and experimentation."
-              : ownership === "company"
-                ? "A company project developed as part of a professional team."
-                : "A client project developed as part of a professional collaboration."}
-          </p>
+          <span className="shrink-0 mt-1 text-muted-foreground group-hover:text-foreground transition-colors">
+            {isGithub ? (
+              <Github className="size-5" />
+            ) : (
+              <ArrowUpRight className="size-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            )}
+          </span>
         </div>
 
-        <div className="flex justify-between items-center flex-wrap gap-3 pt-2">
+        <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-5">
+          {description}
+        </p>
 
-
-          {projectLink && (
-            <a
-              href={projectLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-neutral-700 bg-neutral-100 px-3 py-1.5 text-xs sm:text-sm font-medium text-black transition hover:bg-primary hover:text-black"
+        <ul className="mt-auto flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <li
+              key={tag}
+              className="rounded-md bg-secondary px-2 py-1 font-mono text-xs text-secondary-foreground"
             >
-              {isGithub ? (
-                <>
-                  <Github className="w-4 h-4" /> GitHub
-                </>
-              ) : (
-                <>
-                  <Globe className="w-4 h-4" /> Website
-                </>
-              )}
-            </a>
-          )}
-        </div>
+              {tag}
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
+    </a>
   );
 };
 
 const FeaturedProjects = () => {
   return (
-    <section className="mb-16 scroll-mt-10 3xl:pt-30" id="projects">
+    <section className="mb-24 scroll-mt-20" id="projects">
       <SectionHeader icon={<Code />} title="Projects" />
 
-      <p className=" text-neutral-300 md:text-left mx-auto md:mx-0 leading-relaxed text-base xl:text-lg tracking-wide">
-        I've worked on a wide variety of projects — from sleek, responsive
-        websites to dynamic full-stack applications. Here's a glimpse of some
+      <p className="text-muted-foreground leading-relaxed text-base md:text-lg max-w-2xl">
+        I’ve worked on a wide variety of projects — from sleek, responsive
+        websites to dynamic full-stack applications. Here’s a glimpse of some
         key highlights.
       </p>
 
-      <div className="grid md:grid-cols-2 3xl:grid-cols-3 gap-9 xl:gap-12 2xl:gap-14 mt-12 xl:mt-16 2xl:mt-20">
+      <div className="grid md:grid-cols-2 gap-6 mt-10">
         {projectsData.map((project, i) => (
           <ProjectCard key={i} {...project} />
         ))}
       </div>
-      <div className="mt-10 text-center md:text-right">
+      <div className="mt-10">
         <a
           href="https://github.com/rudragaur-01"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-neutral-400 hover:text-white underline underline-offset-4 transition"
+          className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
         >
-          Explore more projects on GitHub →
+          Explore more projects on GitHub <ArrowUpRight className="size-4" />
         </a>
       </div>
     </section>

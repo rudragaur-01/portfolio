@@ -6,14 +6,14 @@ interface SectionHeaderProps {
 
 const SectionHeader = ({ icon, title, subtitle }: SectionHeaderProps) => {
   return (
-    <div className="mb-12">
-      <div className="flex items-center gap-4 mb-4">
-        <div className="p-2 lg:p-3  bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl border border-blue-500/30">{icon}</div>
-        <div className="flex flex-col">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent">{title}</h2>
-          {subtitle && <p className="text-sm text-muted-foreground">{subtitle}</p>}
-        </div>
+    <div className="mb-10">
+      <div className="flex items-center gap-3">
+        <span className="text-muted-foreground [&_svg]:size-5">{icon}</span>
+        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
+          {title}
+        </h2>
       </div>
+      {subtitle && <p className="mt-2 text-muted-foreground">{subtitle}</p>}
     </div>
   );
 };

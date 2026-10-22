@@ -1,110 +1,146 @@
 import React from "react";
-import { TrendingUpIcon } from "lucide-react";
+import { Check, GraduationCap, TrendingUpIcon } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import { education, experience } from "../constants/mock";
 import type { ExperienceType } from "@/types";
+import { getExperience } from "@/lib/utils";
 
-interface ExpCardProps {
+// Emphasises metrics like "8+", "73%" or "~26 ms" inside a bullet point.
+const METRIC = /(~?\d[\d.]*\s?(?:\+|%|ms\b))/g;
+
+const Highlighted = ({ text }: { text: string }) => (
+  <>
+    {text.split(METRIC).map((part, i) =>
+      i % 2 === 1 ? (
+        <span key={i} className="font-semibold text-foreground">
+          {part}
+        </span>
+      ) : (
+        part
+      )
+    )}
+  </>
+);
+
+const initials = (name: string) =>
+  name
+    .split(",")[0]
+    .split(/\s+/)
+    .map((w) => w[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
+interface EntryProps {
   item: ExperienceType;
   ed?: boolean;
 }
 
-function getExperience(startDate: Date) {
-  const now = new Date();
+const Entry: React.FC<EntryProps> = ({ item, ed }) => {
+  const isCurrent = /present/i.test(item.year);
 
-  let months =
-    (now.getFullYear() - startDate.getFullYear()) * 12 +
-    (now.getMonth() - startDate.getMonth());
-
-  const years = Math.floor(months / 12);
-  months %= 12;
-
-  if (years > 0 && months > 0) {
-    return `${years} yr${years > 1 ? "s" : ""} ${months} mo${
-      months > 1 ? "s" : ""
-    }`;
-  }
-
-  if (years > 0) {
-    return `${years} yr${years > 1 ? "s" : ""}`;
-  }
-
-  return `${months} mo${months > 1 ? "s" : ""}`;
-}
-const ExpCard: React.FC<ExpCardProps> = ({ item, ed }) => {
   return (
-    <div className="relative group tracking-wide">
-      <div className="absolute -left-[31px] top-1 size-3 bg-muted-foreground group-hover:bg-primary rounded-full transition duration-300" />
-
-      <div className="flex flex-col gap-2">
-    <span className="text-neutral-400 text-base xl:text-lg group-hover:text-primary transition duration-300">
-  {item.year}
-  {!ed && item.startDate && (
-    <span className="ml-2 text-primary">
-      • {getExperience(new Date(item.startDate))}
-    </span>
-  )}
-</span>
-
-        <h3 className="text-lg lg:text-xl font-semibold mt-1">
-          {item.title}
-        </h3>
-
-        <p className="text-sm lg:text-base text-neutral-400 mb-1">
-          {ed ? "Course by" : "Company:"}{" "}
-          <span className="font-medium text-foreground">
-            {item.institute}
+    <article className="rounded-2xl border border-border bg-card p-5 sm:p-6 md:p-8">
+      <header className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex items-start gap-4">
+          <span className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-border bg-secondary font-mono text-sm font-semibold text-secondary-foreground">
+            {ed ? <GraduationCap className="size-5" /> : initials(item.institute)}
           </span>
-        </p>
+          <div>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+              <h3 className="text-lg md:text-xl font-semibold tracking-tight">
+                {item.title}
+              </h3>
+              {item.note && (
+                <span className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground">
+                  {item.note}
+                </span>
+              )}
+            </div>
+            <p className="mt-1 text-sm md:text-base text-muted-foreground">
+              {item.institute}
+            </p>
+          </div>
+        </div>
 
-        <ul className="list-disc pl-5 space-y-2 text-sm lg:text-base text-neutral-400">
-          {item.desc.map((point, index) => (
-            <li key={index}>{point}</li>
+        <div className="flex items-center gap-2 sm:flex-col sm:items-end sm:gap-1.5 pl-16 sm:pl-0">
+          <span className="font-mono text-xs md:text-sm text-muted-foreground whitespace-nowrap">
+            {item.year}
+          </span>
+          {isCurrent && item.startDate && (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-success/10 px-2.5 py-0.5 text-xs font-medium text-success whitespace-nowrap">
+              <span className="size-1.5 rounded-full bg-success" />
+              {getExperience(new Date(item.startDate))}
+            </span>
+          )}
+        </div>
+      </header>
+
+      {item.highlights && (
+        <dl className="mt-6 grid grid-cols-3 divide-x divide-border rounded-xl border border-border bg-background/40">
+          {item.highlights.map((h) => (
+            <div key={h.label} className="flex flex-col-reverse px-3 py-3 sm:px-5 sm:py-4">
+              <dt className="mt-1 text-[11px] sm:text-xs leading-snug text-muted-foreground">
+                {h.label}
+              </dt>
+              <dd className="text-xl sm:text-2xl font-semibold tracking-tight">
+                {h.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      )}
+
+      <ul
+        className={`mt-6 grid gap-x-8 gap-y-3.5 text-sm md:text-[15px] text-muted-foreground leading-relaxed ${
+          item.desc.length > 3 ? "lg:grid-cols-2" : ""
+        }`}
+      >
+        {item.desc.map((point, index) => (
+          <li key={index} className="flex gap-3">
+            <Check className="mt-1 size-4 shrink-0 text-success/80" />
+            <span>
+              <Highlighted text={point} />
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      {item.tags && (
+        <ul className="mt-6 flex flex-wrap gap-2 border-t border-border pt-6">
+          {item.tags.map((tag) => (
+            <li
+              key={tag}
+              className="rounded-md bg-secondary px-2 py-1 font-mono text-xs text-secondary-foreground"
+            >
+              {tag}
+            </li>
           ))}
         </ul>
-      </div>
-    </div>
+      )}
+    </article>
   );
 };
 
 const ProfessionalJourney = () => {
   return (
-    <section className="mb-16" id="professional-journey">
-      <SectionHeader
-        icon={<TrendingUpIcon />}
-        title="Professional Journey"
-      />
+    <section className="mb-24 scroll-mt-20" id="professional-journey">
+      <SectionHeader icon={<TrendingUpIcon />} title="Experience" />
 
-      <p className="text-neutral-300 md:text-left mx-auto md:mx-0 leading-relaxed text-base xl:text-lg tracking-wide mb-8">
-        A comprehensive overview of my education, work experience, and
-        technologies I use to build modern, scalable, and high-performance
-        applications.
-      </p>
+      <div className="space-y-4">
+        {experience.map((item, i) => (
+          <Entry key={i} item={item} />
+        ))}
+      </div>
 
-      <div className="grid gap-8 md:grid-cols-2">
-        <div>
-          <h2 className="text-xl lg:text-3xl font-semibold mb-4 lg:mb-8">
-            Work Experience
-          </h2>
+      <h3 className="font-mono text-xs uppercase tracking-widest text-muted-foreground mt-12 mb-4">
+        Education
+      </h3>
 
-          <div className="space-y-10 border-l border-neutral-700 pl-6">
-            {experience.map((item, i) => (
-              <ExpCard key={i} item={item} />
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h2 className="text-xl lg:text-3xl font-semibold mb-4 lg:mb-8">
-            Education
-          </h2>
-
-          <div className="space-y-10 border-l border-neutral-700 pl-6">
-            {education.map((item, i) => (
-              <ExpCard key={i} item={item} ed />
-            ))}
-          </div>
-        </div>
+      <div className="space-y-4">
+        {education.map((item, i) => (
+          <Entry key={i} item={item} ed />
+        ))}
       </div>
     </section>
   );
